@@ -995,5 +995,4 @@ inline CUDA_CALLABLE void print(quat_t<Type> i) {
 template<typename Type>
 inline CUDA_CALLABLE void adj_print(quat_t<Type> q, quat_t<Type> &adj_q) { printf("%g %g %g %g adj: %g %g %g %g\n", q.x, q.y, q.z, q.w, adj_q.x, adj_q.y, adj_q.z, adj_q.w); }
 
-
 }// namespace wp

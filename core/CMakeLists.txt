@@ -18,6 +18,18 @@ set(COMMON_FILES
         array.h
         fabric.h
         spatial.h
+        rand.h
+        noise.h
+        range.h
+        bounds.h
+        solid_angle.h
+        intersect.h
+        intersect_tri.h
+        intersect_adj.h
+        svd.h
+        matnn.h
+        #
+        hashgrid.h
 )
 
 source_group("common\\" FILES ${COMMON_FILES})
