@@ -1,6 +1,0 @@
-#ifndef WARP_HEADER_LIBRARY_H
-#define WARP_HEADER_LIBRARY_H
-
-void hello();
-
-#endif//WARP_HEADER_LIBRARY_H
