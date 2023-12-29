@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include "builtin.h"
+
 namespace wp {
 
 // wp::initializer_array<> is a simple substitute for std::initializer_list<>
@@ -15,11 +17,11 @@ template<unsigned Length, typename Type>
 struct initializer_array {
     const Type storage[Length];
 
-    CUDA_CALLABLE const Type operator[](unsigned i) {
+    CUDA_CALLABLE Type operator[](unsigned i) {
         return storage[i];
     }
 
-    CUDA_CALLABLE const Type operator[](unsigned i) const {
+    CUDA_CALLABLE Type operator[](unsigned i) const {
         return storage[i];
     }
 };

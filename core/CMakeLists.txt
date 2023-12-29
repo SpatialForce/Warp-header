@@ -9,6 +9,8 @@ cmake_minimum_required(VERSION 3.16)
 project(core LANGUAGES C CXX CUDA)
 
 set(COMMON_FILES
+        crt.h
+        builtin.h
         initializer_array.h
 )
 
