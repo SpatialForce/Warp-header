@@ -9,6 +9,8 @@ project(sim-tests LANGUAGES C CXX CUDA)
 
 set(SRC
         main.cpp
+        vec_tests.cpp
+        vec_tests.cu
 )
 
 add_executable(${PROJECT_NAME} ${SRC})
