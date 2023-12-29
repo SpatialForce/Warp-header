@@ -1218,59 +1218,19 @@ inline CUDA_CALLABLE void print(unsigned long long i) {
     printf("%llu\n", i);
 }
 
-//template<unsigned Length, typename Type>
-//inline CUDA_CALLABLE void print(vec_t<Length, Type> v) {
-//    for (unsigned i = 0; i < Length; ++i) {
-//        printf("%g ", float(v[i]));
-//    }
-//    printf("\n");
-//}
-//
-//template<typename Type>
-//inline CUDA_CALLABLE void print(quat_t<Type> i) {
-//    printf("%g %g %g %g\n", float(i.x), float(i.y), float(i.z), float(i.w));
-//}
-//
-//template<unsigned Rows, unsigned Cols, typename Type>
-//inline CUDA_CALLABLE void print(const mat_t<Rows, Cols, Type> &m) {
-//    for (unsigned i = 0; i < Rows; ++i) {
-//        for (unsigned j = 0; j < Cols; ++j) {
-//            printf("%g ", float(m.data[i][j]));
-//        }
-//        printf("\n");
-//    }
-//}
-//
-//template<typename Type>
-//inline CUDA_CALLABLE void print(transform_t<Type> t) {
-//    printf("(%g %g %g) (%g %g %g %g)\n", float(t.p[0]), float(t.p[1]), float(t.p[2]), float(t.q.x), float(t.q.y), float(t.q.z), float(t.q.w));
-//}
-//
-//inline CUDA_CALLABLE void adj_print(int i, int adj_i) { printf("%d adj: %d\n", i, adj_i); }
-//inline CUDA_CALLABLE void adj_print(float f, float adj_f) { printf("%g adj: %g\n", f, adj_f); }
-//inline CUDA_CALLABLE void adj_print(short f, short adj_f) { printf("%hd adj: %hd\n", f, adj_f); }
-//inline CUDA_CALLABLE void adj_print(long f, long adj_f) { printf("%ld adj: %ld\n", f, adj_f); }
-//inline CUDA_CALLABLE void adj_print(long long f, long long adj_f) { printf("%lld adj: %lld\n", f, adj_f); }
-//inline CUDA_CALLABLE void adj_print(unsigned f, unsigned adj_f) { printf("%u adj: %u\n", f, adj_f); }
-//inline CUDA_CALLABLE void adj_print(unsigned short f, unsigned short adj_f) { printf("%hu adj: %hu\n", f, adj_f); }
-//inline CUDA_CALLABLE void adj_print(unsigned long f, unsigned long adj_f) { printf("%lu adj: %lu\n", f, adj_f); }
-//inline CUDA_CALLABLE void adj_print(unsigned long long f, unsigned long long adj_f) { printf("%llu adj: %llu\n", f, adj_f); }
-//inline CUDA_CALLABLE void adj_print(half h, half adj_h) { printf("%g adj: %g\n", half_to_float(h), half_to_float(adj_h)); }
-//inline CUDA_CALLABLE void adj_print(double f, double adj_f) { printf("%g adj: %g\n", f, adj_f); }
-//
-//template<unsigned Length, typename Type>
-//inline CUDA_CALLABLE void adj_print(vec_t<Length, Type> v, vec_t<Length, Type> &adj_v) { printf("%g %g adj: %g %g \n", v[0], v[1], adj_v[0], adj_v[1]); }
-//
-//template<unsigned Rows, unsigned Cols, typename Type>
-//inline CUDA_CALLABLE void adj_print(mat_t<Rows, Cols, Type> m, mat_t<Rows, Cols, Type> &adj_m) {}
-//
-//template<typename Type>
-//inline CUDA_CALLABLE void adj_print(quat_t<Type> q, quat_t<Type> &adj_q) { printf("%g %g %g %g adj: %g %g %g %g\n", q.x, q.y, q.z, q.w, adj_q.x, adj_q.y, adj_q.z, adj_q.w); }
-//
-//template<typename Type>
-//inline CUDA_CALLABLE void adj_print(transform_t<Type> t, transform_t<Type> &adj_t) {}
-//
-//inline CUDA_CALLABLE void adj_print(str t, str &adj_t) {}
+inline CUDA_CALLABLE void adj_print(int i, int adj_i) { printf("%d adj: %d\n", i, adj_i); }
+inline CUDA_CALLABLE void adj_print(float f, float adj_f) { printf("%g adj: %g\n", f, adj_f); }
+inline CUDA_CALLABLE void adj_print(short f, short adj_f) { printf("%hd adj: %hd\n", f, adj_f); }
+inline CUDA_CALLABLE void adj_print(long f, long adj_f) { printf("%ld adj: %ld\n", f, adj_f); }
+inline CUDA_CALLABLE void adj_print(long long f, long long adj_f) { printf("%lld adj: %lld\n", f, adj_f); }
+inline CUDA_CALLABLE void adj_print(unsigned f, unsigned adj_f) { printf("%u adj: %u\n", f, adj_f); }
+inline CUDA_CALLABLE void adj_print(unsigned short f, unsigned short adj_f) { printf("%hu adj: %hu\n", f, adj_f); }
+inline CUDA_CALLABLE void adj_print(unsigned long f, unsigned long adj_f) { printf("%lu adj: %lu\n", f, adj_f); }
+inline CUDA_CALLABLE void adj_print(unsigned long long f, unsigned long long adj_f) { printf("%llu adj: %llu\n", f, adj_f); }
+inline CUDA_CALLABLE void adj_print(half h, half adj_h) { printf("%g adj: %g\n", half_to_float(h), half_to_float(adj_h)); }
+inline CUDA_CALLABLE void adj_print(double f, double adj_f) { printf("%g adj: %g\n", f, adj_f); }
+
+inline CUDA_CALLABLE void adj_print(str t, str &adj_t) {}
 
 template<typename T>
 inline CUDA_CALLABLE void expect_eq(const T &actual, const T &expected) {
@@ -1316,25 +1276,9 @@ inline CUDA_CALLABLE void expect_near(const T &actual, const T &expected, const 
     }
 }
 
-//inline CUDA_CALLABLE void expect_near(const vec3 &actual, const vec3 &expected, const float &tolerance) {
-//    const float diff = max(max(abs(actual[0] - expected[0]), abs(actual[1] - expected[1])), abs(actual[2] - expected[2]));
-//    if (diff > tolerance) {
-//        printf("Error, expect_near() failed with tolerance ");
-//        print(tolerance);
-//        printf("\t Expected: ");
-//        print(expected);
-//        printf("\t Actual: ");
-//        print(actual);
-//    }
-//}
-//
-//template<typename T>
-//inline CUDA_CALLABLE void adj_expect_near(const T &actual, const T &expected, const T &tolerance, T &adj_actual, T &adj_expected, T &adj_tolerance) {
-//    // nop
-//}
-//
-//inline CUDA_CALLABLE void adj_expect_near(const vec3 &actual, const vec3 &expected, float tolerance, vec3 &adj_actual, vec3 &adj_expected, float adj_tolerance) {
-//    // nop
-//}
+template<typename T>
+inline CUDA_CALLABLE void adj_expect_near(const T &actual, const T &expected, const T &tolerance, T &adj_actual, T &adj_expected, T &adj_tolerance) {
+    // nop
+}
 
 }// namespace wp

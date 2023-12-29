@@ -5,7 +5,7 @@
 //  property of any third parties.
 
 #include <gtest/gtest.h>
-#include "core/initializer_array.h"
+#include "core/spatial.h"
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

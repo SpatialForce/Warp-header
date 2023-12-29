@@ -12,6 +12,12 @@ set(COMMON_FILES
         crt.h
         builtin.h
         initializer_array.h
+        vec.h
+        mat.h
+        quat.h
+        array.h
+        fabric.h
+        spatial.h
 )
 
 source_group("common\\" FILES ${COMMON_FILES})

@@ -12,18 +12,16 @@
 #include <cstdio>
 #include <cassert>
 
-extern "C" WP_API int _wp_isfinite(double x)
-{
+extern "C" WP_API int _wp_isfinite(double x) {
     return std::isfinite(x);
 }
 
-extern "C" WP_API void _wp_assert(const char* expression, const char* file, unsigned int line)
-{
+extern "C" WP_API void _wp_assert(const char *expression, const char *file, unsigned int line) {
     fflush(stdout);
     fprintf(stderr,
-        "Assertion failed: '%s'\n"
-        "At '%s:%d'\n",
-        expression, file, line);
+            "Assertion failed: '%s'\n"
+            "At '%s:%d'\n",
+            expression, file, line);
     fflush(stderr);
 
     // Now invoke the standard assert(), which may abort the program or break
